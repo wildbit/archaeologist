@@ -1,5 +1,7 @@
 # Archaeologist
 
+[![Build Status](https://travis-ci.org/wildbit/archaeologist.svg?branch=master)](https://travis-ci.org/wildbit/archaeologist)
+
 A Clojure library to help you read versioned directories at a specific moment of time. Used internally in [Beanstalk](http://beanstalkapp.com). It works with local Subversion and Git repositories as well as regular unversioned directories. VCS support is provided by [SVNKit](http://svnkit.com) and [JGit](https://eclipse.org/jgit/).
 
 ## Installation
