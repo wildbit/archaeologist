@@ -9,7 +9,7 @@ A Clojure library to help you read versioned directories at a specific moment of
 Add the following dependency to your `project.clj` file:
 
 ```
-[archaeologist "0.1.0"]
+[archaeologist "0.1.1"]
 ```
 
 ## Usage

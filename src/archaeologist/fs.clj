@@ -2,7 +2,8 @@
   (:require [archaeologist.core :refer :all]
             [archaeologist.utils :refer :all]
             [clojure.java.io :refer [file]])
-  (:import java.io.File))
+  (:import java.io.File
+           java.io.FileNotFoundException))
 
 (defn hidden?
   "Returns true if a given path is hidden. Any file that is hidden itself or contained
@@ -36,10 +37,13 @@
           (into []))))
 
   (read-file [repo _ file-path]
-    (read-file repo nil "" file-path))
+    (read-file repo nil nil file-path))
   (read-file [repo _ path file-path]
-    (let [^String string (-> repo :path (file path file-path) slurp)]
-      (.getBytes string)))
+    (try
+      (let [path (join-paths (:path repo) path file-path)
+            ^String string (slurp path)]
+        (.getBytes string))
+      (catch FileNotFoundException _ nil)))
 
   (get-default-version [_] nil)
 

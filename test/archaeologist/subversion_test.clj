@@ -14,5 +14,6 @@
     (list-files-path-test *repository* version)
     (list-files-path+depth-test *repository* version)
     (read-file-test *repository* version)
-    (read-file-path-test *repository* version)))
+    (read-file-path-test *repository* version)
+    (read-file-missing-test *repository* version)))
 

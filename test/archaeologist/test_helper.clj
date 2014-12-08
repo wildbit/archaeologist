@@ -54,6 +54,10 @@
                    (= expected-content
                       (string/trim (String. ^bytes file-bytes))))))))))
 
+(defn read-file-missing-test [repo version]
+  (testing "read missing file"
+    (is (nil? (read-file repo version "h")))))
+
 (defn read-file-path-test [repo version]
   (testing "read file in path"
     (let [files ["d" "e" "f/g"]]
