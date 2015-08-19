@@ -7,7 +7,7 @@
 
 (defn join-paths
   [& paths]
-  (.toString ^File (apply io/file (remove nil? paths))))
+  (.toString ^File (apply io/file (remove (some-fn nil? empty?) paths))))
 
 (defn get-depth
   [path]

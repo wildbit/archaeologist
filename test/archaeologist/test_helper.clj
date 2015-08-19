@@ -66,5 +66,9 @@
               file-bytes (read-file repo version "c" file)]
           (is (and file-bytes
                    (= expected-content
-                      (string/trim (String. ^bytes file-bytes))))))))))
+                      (string/trim (String. ^bytes file-bytes)))))))))
+  (testing "empty path"
+    (let [file-bytes (read-file repo version "" "a")]
+      (is (and file-bytes
+               (= "a" (string/trim (String. ^bytes file-bytes))))))))
 
