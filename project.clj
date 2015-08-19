@@ -1,4 +1,4 @@
-(defproject archaeologist "0.1.2-SNAPSHOT"
+(defproject archaeologist "0.1.2"
   :description "An interface for reading versioned directories at a specific moment of time."
   :url "http://github.com/wildbit/archaeologist"
   :license {:name "Eclipse Public License"
