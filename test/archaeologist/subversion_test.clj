@@ -13,6 +13,7 @@
     (list-files-depth-test *repository* version)
     (list-files-path-test *repository* version)
     (list-files-path+depth-test *repository* version)
+    (list-files-missing-version *repository* "9999")
     (read-file-test *repository* version)
     (read-file-path-test *repository* version)
     (read-file-missing-test *repository* version)))

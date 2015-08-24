@@ -44,6 +44,10 @@
       (is (= #{"d" "e" "f"}
              (->> files (map :path) (into #{})))))))
 
+(defn list-files-missing-version [repo version]
+  (testing "try to list files using a missing version"
+    (is (thrown? UnsupportedOperationException (list-files repo version)))))
+
 (defn read-file-test [repo version]
   (testing "read file"
     (let [files ["a" "b" "c/d" "c/e" "c/f/g"]]

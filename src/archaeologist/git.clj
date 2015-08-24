@@ -7,6 +7,7 @@
            [org.eclipse.jgit.treewalk TreeWalk]
            org.eclipse.jgit.storage.file.FileRepositoryBuilder
            org.eclipse.jgit.treewalk.filter.PathFilter
+           org.eclipse.jgit.errors.MissingObjectException
            [org.eclipse.jgit.util FS]
            java.io.ByteArrayOutputStream))
 
@@ -23,8 +24,10 @@
 (defn- load-commit
   "Loads a commit object into memory."
   ^RevCommit [^Repository repo commit]
-  (when-let [obj-id ^Ref (.resolve repo commit)]
-    (.parseCommit (RevWalk. repo) obj-id)))
+  (try
+    (when-let [obj-id ^Ref (.resolve repo commit)]
+      (.parseCommit (RevWalk. repo) obj-id))
+    (catch MissingObjectException _ nil)))
 
 (defn- new-tree-walk
   "Create a new TreeWalk instance (mutable), automatically enters
