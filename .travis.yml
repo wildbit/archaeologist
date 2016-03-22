@@ -3,5 +3,5 @@ lein: lein2
 jdk:
   - openjdk7
   - oraclejdk7
-script: "lein2 test"
+script: "lein2 test-all"
 before_script: "unzip test/fixtures.zip -d test"
